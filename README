@@ -1,0 +1,28 @@
+# THOSEKIDS PLUGIN
+# DoPrettyUrls
+
+This "do" plugin provides a customized +to_param+ method to override typical
+id-based URL construction. The goal is to provide an higher-visibility SEO,
+as well as URLS which are recognizable and memorable.
+
+Classes which specify this plugin must have a +name+ property, or override the
+vanity field when defining. The vanity property will be combined with the +id+
+property to build a memorable +to_param+.
+
+#
+# EXAMPLE
+#
+
+  class MyModel < ActiveRecord::Base
+    # Use name field for vanity generation:
+    do_pretty_urls
+  end
+  
+  class MyOtherModel < ActiveRecord::Base
+    # Specify a field for vanity use:
+    do_pretty_urls :column => :other_field_name
+  end
+
+
+
+Copyright (c) 2009 Colin McCloskey, released under the MIT license
